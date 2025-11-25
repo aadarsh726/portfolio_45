@@ -1,0 +1,63 @@
+// Phase 2 & 3 Section Styles
+
+// Tech Stack
+.tech-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--primary-color);
+        transform: translateY(-5px);
+    }
+}
+
+// Blog
+.blog-card {
+    @extend .glass-card;
+    overflow: hidden;
+
+    img {
+        transition: transform 0.5s ease;
+    }
+
+    &:hover img {
+        transform: scale(1.05);
+    }
+}
+
+// Timeline
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: -6px;
+        top: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--primary-color);
+        box-shadow: 0 0 10px var(--primary-color);
+    }
+}
+
+// Hire Me
+.hire-me-section {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at center, rgba(112, 0, 255, 0.05) 0%, transparent 70%);
+        pointer-events: none;
+    }
+}

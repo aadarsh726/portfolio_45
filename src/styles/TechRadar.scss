@@ -1,0 +1,446 @@
+.tech-radar-section {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+
+    // Background glow effect
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%);
+        filter: blur(60px);
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+
+.radar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    position: relative;
+    z-index: 1;
+}
+
+.radar-core {
+    position: relative;
+    width: 550px;
+    height: 550px;
+
+    @media (max-width: 768px) {
+        width: 400px;
+        height: 400px;
+    }
+
+    @media (max-width: 480px) {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+// Center circle
+.center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #00f2ff, #7000ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(0, 242, 255, 0.5);
+    z-index: 10;
+
+    @media (max-width: 768px) {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.center-text {
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    @media (max-width: 768px) {
+        font-size: 10px;
+    }
+}
+
+// Orbit rings - LOWER z-index so skills appear on top
+.orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+
+    @media (max-width: 480px) {
+        transform: translate(-50%, -50%) scale(0.55);
+    }
+}
+
+// Skill node wrapper - HIGHER z-index to appear above rings
+.skill-node-wrapper {
+    position: absolute;
+    z-index: 15;
+
+    @media (max-width: 768px) {
+        transform: translate(calc(-50% + var(--x) * 0.7), calc(-50% + var(--y) * 0.7)) !important;
+    }
+
+    @media (max-width: 480px) {
+        transform: translate(calc(-50% + var(--x) * 0.55), calc(-50% + var(--y) * 0.55)) !important;
+    }
+}
+
+// Skill node
+.skill-node {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
+
+    @media (max-width: 480px) {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+.skill-initial {
+    font-weight: bold;
+    font-size: 11px;
+
+    @media (max-width: 768px) {
+        font-size: 9px;
+    }
+}
+
+// Tooltip - HIGHEST z-index
+.skill-tooltip {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 12px 16px;
+    white-space: nowrap;
+    z-index: 200;
+    pointer-events: none;
+
+    @media (max-width: 768px) {
+        top: -65px;
+        padding: 10px 14px;
+    }
+}
+
+.tech-radar-section {
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+
+    // Background glow effect
+    &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%);
+        filter: blur(60px);
+        pointer-events: none;
+        z-index: 0;
+    }
+}
+
+.radar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    position: relative;
+    z-index: 1;
+}
+
+.radar-core {
+    position: relative;
+    width: 550px;
+    height: 550px;
+
+    @media (max-width: 768px) {
+        width: 400px;
+        height: 400px;
+    }
+
+    @media (max-width: 480px) {
+        width: 320px;
+        height: 320px;
+    }
+}
+
+// Center circle
+.center-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #00f2ff, #7000ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(0, 242, 255, 0.5);
+    z-index: 10;
+
+    @media (max-width: 768px) {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.center-text {
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+
+    @media (max-width: 768px) {
+        font-size: 10px;
+    }
+}
+
+// Orbit rings - LOWER z-index so skills appear on top
+.orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+        transform: translate(-50%, -50%) scale(0.7);
+    }
+
+    @media (max-width: 480px) {
+        transform: translate(-50%, -50%) scale(0.55);
+    }
+}
+
+// Skill node wrapper - HIGHER z-index to appear above rings
+.skill-node-wrapper {
+    position: absolute;
+    z-index: 15;
+
+    @media (max-width: 768px) {
+        transform: translate(calc(-50% + var(--x) * 0.7), calc(-50% + var(--y) * 0.7)) !important;
+    }
+
+    @media (max-width: 480px) {
+        transform: translate(calc(-50% + var(--x) * 0.55), calc(-50% + var(--y) * 0.55)) !important;
+    }
+}
+
+// Skill node
+.skill-node {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
+
+    @media (max-width: 480px) {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+.skill-initial {
+    font-weight: bold;
+    font-size: 11px;
+
+    @media (max-width: 768px) {
+        font-size: 9px;
+    }
+}
+
+// Tooltip - HIGHEST z-index
+.skill-tooltip {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid;
+    border-radius: 12px;
+    padding: 12px 16px;
+    white-space: nowrap;
+    z-index: 200;
+    pointer-events: none;
+
+    @media (max-width: 768px) {
+        top: -65px;
+        padding: 10px 14px;
+    }
+}
+
+.tooltip-content {
+    position: relative;
+    z-index: 1;
+}
+
+.tooltip-name {
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 2px;
+
+    @media (max-width: 768px) {
+        font-size: 12px;
+    }
+}
+
+.tooltip-category {
+    color: var(--text-muted);
+    font-size: 11px;
+    margin-bottom: 4px;
+
+    @media (max-width: 768px) {
+        font-size: 10px;
+    }
+}
+
+.tooltip-proficiency {
+    font-size: 12px;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+        font-size: 11px;
+    }
+}
+
+.tooltip-dot {
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+
+    @media (max-width: 768px) {
+        width: 6px;
+        height: 6px;
+        bottom: -4px;
+    }
+}
+
+// Legend
+.radar-legend {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 3rem;
+
+    @media (max-width: 768px) {
+        gap: 8px;
+        margin-top: 2rem;
+    }
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    @media (max-width: 768px) {
+        padding: 6px 12px;
+        gap: 6px;
+    }
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+
+    @media (max-width: 768px) {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.legend-name {
+    color: var(--text-color);
+    font-size: 13px;
+    font-weight: 600;
+
+    @media (max-width: 768px) {
+        font-size: 11px;
+    }
+}
+
+.legend-count {
+    color: var(--text-muted);
+    font-size: 12px;
+
+    @media (max-width: 768px) {
+        font-size: 10px;
+    }
+}
